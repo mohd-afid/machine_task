@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:machine_task/presentation/widgets/room_selector.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -7,7 +8,7 @@ class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 300,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('lib/assets/images/home.png'),
@@ -47,11 +48,11 @@ class HeaderSection extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 20,
+            bottom: 60,
             left: 20,
             right: 20,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(20),
@@ -78,6 +79,12 @@ class HeaderSection extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            top: 230,
+              bottom: 0,
+              left: 20,
+              right: 20,
+              child: RoomSelector()),
         ],
       ),
     );
