@@ -8,7 +8,7 @@ class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 330,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('lib/assets/images/home.png'),
@@ -49,10 +49,10 @@ class HeaderSection extends StatelessWidget {
           ),
           Positioned(
             bottom: 60,
-            left: 20,
-            right: 20,
+            left: 100,
+            right: 100,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(20),

@@ -14,7 +14,7 @@ class DeviceList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(height: MediaQuery.of(context).size.height * .49,
       child: ListView.builder(
         itemCount: devices.length,
         itemBuilder: (context, index) {
