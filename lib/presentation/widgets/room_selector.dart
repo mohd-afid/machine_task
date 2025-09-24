@@ -13,27 +13,30 @@ class _RoomSelectorState extends State<RoomSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: List.generate(_rooms.length, (index) {
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            child: Text(
-              _rooms[index],
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
-                color: _selectedIndex == index ? Colors.black : Colors.grey,
+    return Container(
+      color: Colors.white.withOpacity(.16),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: List.generate(_rooms.length, (index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              child: Text(
+                _rooms[index],
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
+                  color: _selectedIndex == index ? Colors.black : Colors.grey,
+                ),
               ),
-            ),
-          );
-        }),
+            );
+          }),
+        ),
       ),
     );
   }

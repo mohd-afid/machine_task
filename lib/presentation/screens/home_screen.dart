@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           const HeaderSection(),
        //   const RoomSelector(),
-          SizedBox(height: 20,),
+          SizedBox(height: 16,),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
