@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -13,61 +12,97 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The package has 5 items, with index 2 being the center button.
-    // Our logical index has 4 items (0, 1, 2, 3).
-    // We need to map our logical index to the package's index for correct highlighting.
-    int packageIndex = currentIndex >= 2 ? currentIndex + 1 : currentIndex;
-
-    return CurvedNavigationBar(
-      index: packageIndex,
-      height: 75.0,
-      items: <Widget>[
-        _buildNavItem(Icons.home, 'Home', 0 == currentIndex),
-        _buildNavItem(Icons.tablet_mac_outlined, 'Devices', 1 == currentIndex),
-        const Icon(Icons.add, size: 30, color: Colors.white),
-        _buildNavItem(Icons.play_circle_outline, 'Automation', 2 == currentIndex),
-        _buildNavItem(Icons.notifications_outlined, 'Notifications', 3 == currentIndex),
-      ],
-      color: Colors.white,
-      buttonBackgroundColor: Colors.black,
-      backgroundColor: Colors.transparent,
-      animationCurve: Curves.easeInOut,
-      animationDuration: const Duration(milliseconds: 300),
-      onTap: (index) {
-        if (index == 2) {
-          // This is the FAB tap, we can show a snackbar or perform another action.
-
-        } else {
-          // Map the package index back to our logical index before calling the callback.
-          int logicalIndex = index > 2 ? index - 1 : index;
-          onTap(logicalIndex);
-        }
-      },
+    return SizedBox(
+      height: 85,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: CustomPaint(
+              size: Size(MediaQuery.of(context).size.width, 85),
+              painter: NavBarPainter(),
+              child: Container(
+                height: 85,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildNavItem(Icons.home, 'Home', 0),
+                    _buildNavItem(Icons.tablet_mac_outlined, 'Devices', 1),
+                    const SizedBox(width: 60), // Space for FAB
+                    _buildNavItem(Icons.play_circle_outline, 'Automation', 2),
+                    _buildNavItem(Icons.notifications_outlined, 'Notifications', 3),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildNavItem(IconData icon, String label, bool isSelected) {
+  Widget _buildNavItem(IconData icon, String label, int index) {
+    final isSelected = currentIndex == index;
     final Color color = isSelected ? Colors.black : Colors.grey[500]!;
     final FontWeight fontWeight = isSelected ? FontWeight.w600 : FontWeight.w400;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          icon,
-          size: 26,
-          color: color,
+
+    return Expanded(
+      child: InkWell(
+        onTap: () => onTap(index),
+        borderRadius: BorderRadius.circular(12),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 26, color: color),
+            const SizedBox(height: 6),
+            Text(
+              label,
+              style: TextStyle(
+                color: color,
+                fontSize: 12,
+                fontWeight: fontWeight,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-            color: color,
-            fontSize: 12,
-            fontWeight: fontWeight,
-          ),
-        ),
-      ],
+      ),
     );
   }
+}
+
+class NavBarPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+
+    final path = Path()
+      ..moveTo(0, 20) // Start top-left after corner
+      ..quadraticBezierTo(0, 0, 20, 0) // Top-left corner
+      ..lineTo(size.width * 0.35, 0)
+      // The curve for the FAB
+      ..cubicTo(
+        size.width * 0.4, 0, // Control point 1
+        size.width * 0.4, 45, // Control point 2
+        size.width * 0.5, 45, // End point
+      )
+      ..cubicTo(
+        size.width * 0.6, 45, // Control point 1
+        size.width * 0.6, 0, // Control point 2
+        size.width * 0.65, 0, // End point
+      )
+      ..lineTo(size.width - 20, 0) // Line to top-right corner
+      ..quadraticBezierTo(size.width, 0, size.width, 20) // Top-right corner
+      ..lineTo(size.width, size.height) // Right side
+      ..lineTo(0, size.height) // Bottom side
+      ..close(); // Close path
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
