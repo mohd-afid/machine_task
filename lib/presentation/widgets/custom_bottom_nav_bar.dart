@@ -95,17 +95,17 @@ class NavBarPainter extends CustomPainter {
     final path = Path()
       ..moveTo(0, 20) // Start top-left after corner
       ..quadraticBezierTo(0, 0, 20, 0) // Top-left corner
-      ..lineTo(size.width * 0.35, 0)
+      ..lineTo(size.width * 0.38, 0)
       // The curve for the FAB
       ..cubicTo(
-        size.width * 0.4, 0, // Control point 1
-        size.width * 0.4, 70, // Control point 2
+        size.width * 0.42, 0, // Control point 1
+        size.width * 0.35, 70, // Control point 2 - wider at bottom
         size.width * 0.5, 70, // End point
       )
       ..cubicTo(
-        size.width * 0.6, 70, // Control point 1
-        size.width * 0.6, 0, // Control point 2
-        size.width * 0.65, 0, // End point
+        size.width * 0.65, 70, // Control point 1 - wider at bottom
+        size.width * 0.58, 0, // Control point 2
+        size.width * 0.62, 0, // End point
       )
       ..lineTo(size.width - 20, 0) // Line to top-right corner
       ..quadraticBezierTo(size.width, 0, size.width, 20) // Top-right corner
