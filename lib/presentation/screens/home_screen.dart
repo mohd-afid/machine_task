@@ -53,12 +53,12 @@ class _HomeScreenState extends State<HomeScreen> {
               const SnackBar(content: Text('Add new device')),
             );
           },
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.transparent,
           shape: const CircleBorder(),
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
-            size: 30,
+          child: Image.asset(
+            'lib/assets/icons/center_plus_button.png',
+            width: 80,
+            height: 80,
           ),
         ),
       ),
