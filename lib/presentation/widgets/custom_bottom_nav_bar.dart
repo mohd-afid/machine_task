@@ -1,78 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({super.key});
+class CustomBottomNavBar extends StatelessWidget {
+  final int currentIndex;
+  final Function(int) onTap;
 
-  @override
-  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
-}
-
-class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  const CustomBottomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+    // The package has 5 items, with index 2 being the center button.
+    // Our logical index has 4 items (0, 1, 2, 3).
+    // We need to map our logical index to the package's index for correct highlighting.
+    int packageIndex = currentIndex >= 2 ? currentIndex + 1 : currentIndex;
+
+    return CurvedNavigationBar(
+      index: packageIndex,
+      height: 75.0,
+      items: <Widget>[
+        _buildNavItem(Icons.home, 'Home', 0 == currentIndex),
+        _buildNavItem(Icons.tablet_mac_outlined, 'Devices', 1 == currentIndex),
+        const Icon(Icons.add, size: 30, color: Colors.white),
+        _buildNavItem(Icons.play_circle_outline, 'Automation', 2 == currentIndex),
+        _buildNavItem(Icons.notifications_outlined, 'Notifications', 3 == currentIndex),
+      ],
+      color: Colors.white,
+      buttonBackgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
+      animationCurve: Curves.easeInOut,
+      animationDuration: const Duration(milliseconds: 300),
+      onTap: (index) {
+        if (index == 2) {
+          // This is the FAB tap, we can show a snackbar or perform another action.
+
+        } else {
+          // Map the package index back to our logical index before calling the callback.
+          int logicalIndex = index > 2 ? index - 1 : index;
+          onTap(logicalIndex);
+        }
+      },
+    );
+  }
+
+  Widget _buildNavItem(IconData icon, String label, bool isSelected) {
+    final Color color = isSelected ? Colors.black : Colors.grey[500]!;
+    final FontWeight fontWeight = isSelected ? FontWeight.w600 : FontWeight.w400;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          icon,
+          size: 26,
+          color: color,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-            spreadRadius: 1,
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+            color: color,
+            fontSize: 12,
+            fontWeight: fontWeight,
           ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem('lib/assets/icons/home-trend-down.png', 'Home', 0),
-          _buildNavItem('lib/assets/icons/monitor-mobbile.png', 'Devices', 1),
-          _buildFab(),
-          _buildNavItem('lib/assets/icons/video-octagon.png', 'Automation', 2),
-          _buildNavItem('lib/assets/icons/notification-bing.png', 'Notifications', 3),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(String iconPath, String label, int index) {
-    final isSelected = _selectedIndex == index;
-    return GestureDetector(
-      onTap: () => _onItemTapped(index),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            iconPath,
-            width: 24,
-            height: 24,
-            color: isSelected ? Colors.black : Colors.grey,
-          ),
-          Text(label, style: TextStyle(color: isSelected ? Colors.black : Colors.grey)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFab() {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: Colors.black,
-      elevation: 0,
-      shape: const CircleBorder(),
-      child: const Icon(Icons.add, color: Colors.white),
+        ),
+      ],
     );
   }
 }
