@@ -20,7 +20,7 @@ class AppColors {
   
   // Greys
   static const Color grey = Colors.grey;
-  static const Color lightGrey = Color(0xFFF5F5F5); // Scaffold background
+  static const Color lightGrey = Color(0xFFFAFAFA); // Scaffold background
   static const Color softGrey = Color(0xFFF0F0F0); // Container background
   static const Color mediumGrey = Color(0xFF9E9E9E); // Unselected icon/text
   static const Color darkGrey = Color(0xFF424242); // Icon background
