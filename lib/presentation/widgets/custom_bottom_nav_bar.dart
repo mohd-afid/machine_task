@@ -81,6 +81,13 @@ class CustomBottomNavBar extends StatelessWidget {
 class NavBarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
+    // Create shadow paint
+    final shadowPaint = Paint()
+      ..color = Colors.black.withOpacity(0.1)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8)
+      ..style = PaintingStyle.fill;
+
+    // Create main paint
     final paint = Paint()
       ..color = AppColors.white
       ..style = PaintingStyle.fill;
@@ -106,6 +113,13 @@ class NavBarPainter extends CustomPainter {
       ..lineTo(0, size.height) // Bottom side
       ..close(); // Close path
 
+    // Draw shadow first (offset slightly down)
+    canvas.save();
+    canvas.translate(0, 2);
+    canvas.drawPath(path, shadowPaint);
+    canvas.restore();
+
+    // Draw main shape
     canvas.drawPath(path, paint);
   }
 
