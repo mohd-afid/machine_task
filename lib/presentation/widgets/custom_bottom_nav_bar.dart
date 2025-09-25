@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:machine_task/utils/constants/colors.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -44,7 +45,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
   Widget _buildNavItem(IconData icon, String label, int index) {
     final isSelected = currentIndex == index;
-    final Color color = isSelected ? Colors.black : Colors.grey[500]!;
+    final Color color = isSelected ? AppColors.black : AppColors.mediumGrey;
     final FontWeight fontWeight = isSelected ? FontWeight.w600 : FontWeight.w400;
 
     return Expanded(
@@ -76,7 +77,7 @@ class NavBarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white
+      ..color = AppColors.white
       ..style = PaintingStyle.fill;
 
     final path = Path()

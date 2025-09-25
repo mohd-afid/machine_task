@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:machine_task/utils/constants/colors.dart';
 import 'package:machine_task/presentation/widgets/custom_bottom_nav_bar.dart';
 import 'package:machine_task/presentation/widgets/device_list.dart';
 import 'package:machine_task/presentation/widgets/header_section.dart';
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: AppColors.lightGrey,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // Handle FAB tap
 
             },
-            backgroundColor: Colors.transparent,
+            backgroundColor: AppColors.transparent,
             shape: const CircleBorder(),
             child: Image.asset(
               'lib/assets/icons/center_plus_button.png',

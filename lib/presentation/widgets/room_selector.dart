@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:machine_task/utils/constants/colors.dart';
 
 class RoomSelector extends StatefulWidget {
   const RoomSelector({super.key});
@@ -14,7 +15,7 @@ class _RoomSelectorState extends State<RoomSelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white.withOpacity(.16),
+      color: AppColors.white.withOpacity(.16),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Row(
@@ -31,7 +32,7 @@ class _RoomSelectorState extends State<RoomSelector> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
-                  color: _selectedIndex == index ? Colors.black : Colors.grey,
+                  color: _selectedIndex == index ? AppColors.black : AppColors.grey,
                 ),
               ),
             );

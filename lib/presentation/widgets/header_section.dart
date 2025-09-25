@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:machine_task/presentation/widgets/room_selector.dart';
+import 'package:machine_task/utils/constants/colors.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -23,7 +24,7 @@ class HeaderSection extends StatelessWidget {
             left: 20,
             child: CircleAvatar(
               radius: 30,
-              backgroundColor: Colors.white,
+              backgroundColor: AppColors.white,
               child: ClipOval(
                 child: Image.asset(
                   'lib/assets/icons/profile.png',
@@ -39,7 +40,7 @@ class HeaderSection extends StatelessWidget {
             right: 20,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: AppColors.black,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Padding(
@@ -48,10 +49,10 @@ class HeaderSection extends StatelessWidget {
                   children: [
                    Text(
                         'Purva Westend',
-                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: AppColors.white, fontSize: 16, fontWeight: FontWeight.bold),
                       ),
 
-                    Icon(Icons.keyboard_arrow_down_sharp, color: Colors.white,size: 24,),
+                    Icon(Icons.keyboard_arrow_down_sharp, color: AppColors.white,size: 24,),
                   ],
                 ),
               ),
@@ -64,7 +65,7 @@ class HeaderSection extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
+                color: AppColors.black.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -72,19 +73,19 @@ class HeaderSection extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Image.asset('lib/assets/icons/tv.png', color: Colors.white, width: 24, height: 24),
+                      Image.asset('lib/assets/icons/tv.png', color: AppColors.white, width: 24, height: 24),
                       const SizedBox(width: 8),
-                      const Text('2', style: TextStyle(color: Colors.white, fontSize: 16)),
+                      const Text('2', style: TextStyle(color: AppColors.white, fontSize: 16)),
                     ],
                   ),
                   const Row(
                     children: [
-                      Icon(Icons.person_outline, color: Colors.white),
+                      Icon(Icons.person_outline, color: AppColors.white),
                       SizedBox(width: 8),
-                      Text('1', style: TextStyle(color: Colors.white, fontSize: 16)),
+                      Text('1', style: TextStyle(color: AppColors.white, fontSize: 16)),
                     ],
                   ),
-                  Image.asset('lib/assets/icons/Settings.png', color: Colors.white, width: 24, height: 24),
+                  Image.asset('lib/assets/icons/Settings.png', color: AppColors.white, width: 24, height: 24),
                 ],
               ),
             ),
