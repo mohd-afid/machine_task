@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // This class is not meant to be instantiated.
-  AppColors._();
+
+
 
   // Brand Colors
   static const Color primary = Color(0xFF007BFF);

@@ -28,11 +28,11 @@ class CustomBottomNavBar extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildNavItem(Icons.home, 'Home', 0),
-                    _buildNavItem(Icons.tablet_mac_outlined, 'Devices', 1),
+                    _buildNavItem('lib/assets/icons/home-trend-down.png', 'Home', 0),
+                    _buildNavItem('lib/assets/icons/monitor-mobbile.png', 'Devices', 1),
                     const SizedBox(width: 60), // Space for FAB
-                    _buildNavItem(Icons.play_circle_outline, 'Automation', 2),
-                    _buildNavItem(Icons.notifications_outlined, 'Notifications', 3),
+                    _buildNavItem('lib/assets/icons/video-octagon.png', 'Automation', 2),
+                    _buildNavItem('lib/assets/icons/notification-bing.png', 'Notifications', 3),
                   ],
                 ),
               ),
@@ -43,7 +43,7 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 
-  Widget _buildNavItem(IconData icon, String label, int index) {
+  Widget _buildNavItem(String iconPath, String label, int index) {
     final isSelected = currentIndex == index;
     final Color color = isSelected ? AppColors.black : AppColors.mediumGrey;
     final FontWeight fontWeight = isSelected ? FontWeight.w600 : FontWeight.w400;
@@ -56,7 +56,12 @@ class CustomBottomNavBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 26, color: color),
+            Image.asset(
+              iconPath,
+              height: 26,
+              width: 26,
+              color: color,
+            ),
             const SizedBox(height: 6),
             Text(
               label,
