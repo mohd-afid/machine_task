@@ -43,22 +43,23 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _currentIndex,
         onTap: _onNavItemTapped,
       ),
-      floatingActionButton: SizedBox(
-        width: 68,
-        height: 68,
-        child: FloatingActionButton(
-          onPressed: () {
-            // Handle FAB tap
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Add new device')),
-            );
-          },
-          backgroundColor: Colors.transparent,
-          shape: const CircleBorder(),
-          child: Image.asset(
-            'lib/assets/icons/center_plus_button.png',
-            width: 80,
-            height: 80,
+      floatingActionButton: Transform.translate(
+        offset: const Offset(0, 30), // Moves the button down by 10 pixels
+        child: SizedBox(
+          width: 68,
+          height: 68,
+          child: FloatingActionButton(
+            onPressed: () {
+              // Handle FAB tap
+
+            },
+            backgroundColor: Colors.transparent,
+            shape: const CircleBorder(),
+            child: Image.asset(
+              'lib/assets/icons/center_plus_button.png',
+              width: 70,
+              height: 70,
+            ),
           ),
         ),
       ),

@@ -86,11 +86,11 @@ class NavBarPainter extends CustomPainter {
       // The curve for the FAB
       ..cubicTo(
         size.width * 0.4, 0, // Control point 1
-        size.width * 0.4, 45, // Control point 2
-        size.width * 0.5, 45, // End point
+        size.width * 0.4, 70, // Control point 2
+        size.width * 0.5, 70, // End point
       )
       ..cubicTo(
-        size.width * 0.6, 45, // Control point 1
+        size.width * 0.6, 70, // Control point 1
         size.width * 0.6, 0, // Control point 2
         size.width * 0.65, 0, // End point
       )
