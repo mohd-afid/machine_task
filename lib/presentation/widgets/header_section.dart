@@ -34,21 +34,31 @@ class HeaderSection extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 65,
             right: 20,
-            child: Row(
-              children: [
-                Text(
-                  'Purva Westend',
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 8.0,right: 8),
+                child: const Row(
+                  children: [
+                   Text(
+                        'Purva Westend',
+                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+
+                    Icon(Icons.keyboard_arrow_down_sharp, color: Colors.white,size: 24,),
+                  ],
                 ),
-                Icon(Icons.arrow_drop_down, color: Colors.white),
-              ],
+              ),
             ),
           ),
           Positioned(
-            bottom: 60,
+            bottom: 80,
             left: 100,
             right: 100,
             child: Container(
