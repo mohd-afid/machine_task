@@ -70,7 +70,7 @@ class CustomBottomNavBar extends StatelessWidget {
               fontSize: 11.6,
               fontFamily: 'Geist',
               fontWeight: fontWeight, // SemiBold weight
-              height: 1.43, // Line height 20/14 = 1.43
+
               letterSpacing: 0.0, // 0% letter spacing
             ),
             ),

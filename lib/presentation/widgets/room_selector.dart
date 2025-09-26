@@ -30,8 +30,9 @@ class _RoomSelectorState extends State<RoomSelector> {
               child: Text(
                 _rooms[index],
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: _selectedIndex == index ? FontWeight.bold : FontWeight.normal,
+                  fontSize: _selectedIndex == index ? 20 : 16,
+                  fontWeight: _selectedIndex == index ? FontWeight.w600 : FontWeight.w500,
+                  fontFamily: 'Geist',
                   color: _selectedIndex == index ? AppColors.black : AppColors.grey,
                 ),
               ),

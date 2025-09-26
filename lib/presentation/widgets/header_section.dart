@@ -47,9 +47,14 @@ class HeaderSection extends StatelessWidget {
                 padding: EdgeInsets.only(left: 8.0,right: 8),
                 child: const Row(
                   children: [
-                   Text(
-                        'Purva Westend',
-                        style: TextStyle(color: AppColors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                   Text('Purva Westend',
+                     style: TextStyle(color: AppColors.white,
+                  fontSize: 16,
+                  fontFamily: 'Geist',
+                  fontWeight: FontWeight.w500, // SemiBold weight
+
+                  letterSpacing: 0.0, // 0% letter spacing
+                ),
                       ),
 
                     Icon(Icons.keyboard_arrow_down_sharp, color: AppColors.white,size: 24,),
@@ -65,7 +70,7 @@ class HeaderSection extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
-                color: AppColors.black.withOpacity(0.5),
+                color: AppColors.black.withOpacity(0.4),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -75,14 +80,29 @@ class HeaderSection extends StatelessWidget {
                     children: [
                       Image.asset('lib/assets/icons/tv.png', color: AppColors.white, width: 24, height: 24),
                       const SizedBox(width: 8),
-                      const Text('2', style: TextStyle(color: AppColors.white, fontSize: 16)),
+                      const Text('2',
+                        style:  TextStyle(
+                        color: AppColors.white,
+                        fontSize: 14,
+                        fontFamily: 'Geist',
+                        fontWeight: FontWeight.w600, // SemiBold weight
+                        height: 1.43, // Line height 20/14 = 1.43
+                        letterSpacing: 0.0, // 0% letter spacing
+                      ),),
                     ],
                   ),
                   const Row(
                     children: [
                       Icon(Icons.person_outline, color: AppColors.white),
                       SizedBox(width: 8),
-                      Text('1', style: TextStyle(color: AppColors.white, fontSize: 16)),
+                      Text('1', style:  TextStyle(
+                        color: AppColors.white,
+                        fontSize: 14,
+                        fontFamily: 'Geist',
+                        fontWeight: FontWeight.w600, // SemiBold weight
+                        height: 1.43, // Line height 20/14 = 1.43
+                        letterSpacing: 0.0, // 0% letter spacing
+                      )),
                     ],
                   ),
                   Image.asset('lib/assets/icons/Settings.png', color: AppColors.white, width: 24, height: 24),
