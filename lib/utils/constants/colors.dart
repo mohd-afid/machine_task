@@ -14,12 +14,14 @@ class AppColors {
   static const Color onlineBorder = Colors.blue;
 
   // Neutral Shades
-  static const Color black = Colors.black;
+  static const Color black = Color(0xFF000000);
   static const Color white = Colors.white;
   static const Color transparent = Colors.transparent;
   
   // Greys
   static const Color grey = Colors.grey;
+  static const Color fontColorGrey = Color(0xFF9C9C9C);
+  static const Color fontColorBlack = Color(0xFF262626);
   static const Color lightGrey = Color(0xFFFAFAFA); // Scaffold background
   static const Color softGrey = Color(0xFFF0F0F0); // Container background
   static const Color mediumGrey = Color(0xFF9E9E9E); // Unselected icon/text

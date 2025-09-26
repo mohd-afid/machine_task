@@ -23,12 +23,19 @@ class DeviceListItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(10),
+            width: 63,
+            height: 63,
             decoration: BoxDecoration(
-              color: AppColors.softGrey,
-              borderRadius: BorderRadius.circular(50),
+              color: const Color(0xFFE6E6E6), // Fill color from Figma
+              borderRadius: BorderRadius.circular(30), // Corner radius 0 from Figma
+              border: Border.all(
+                color: Colors.white.withOpacity(0.92), // Stroke color with 92% opacity
+                width: 0.25, // Stroke weight 0.25 from Figma
+              ),
             ),
-            child: _getDeviceIcon(device.icon),
+            child: Center(
+              child: _getDeviceIcon(device.icon),
+            ),
           ),
           const SizedBox(width: 20),
           Column(
@@ -36,7 +43,14 @@ class DeviceListItem extends StatelessWidget {
             children: [
               Text(
                 device.name,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: AppColors.fontColorBlack,
+                  fontSize: 14,
+                  fontFamily: 'Geist',
+                  fontWeight: FontWeight.w500, // Medium weight
+                  height: 1.5, // Line height 18/12 = 1.5
+                  letterSpacing: 0.0, // 0% letter spacing
+                ),
               ),
               Row(
                 children: [
@@ -46,13 +60,23 @@ class DeviceListItem extends StatelessWidget {
                     size: 12,
                   ),
                   const SizedBox(width: 5),
-                  Text(device.isOnline ? 'Online' : 'Offline'),
+                  Text(
+                    device.isOnline ? 'Online' : 'Offline',
+                    style: TextStyle(
+                      color: AppColors.fontColorGrey,
+                      fontSize: 12,
+                      fontFamily: 'Geist',
+                      fontWeight: FontWeight.w500, // Medium weight
+                      height: 1.5, // Line height 18/12 = 1.5
+                      letterSpacing: 0.0, // 0% letter spacing
+                    ),
+                  ),
                 ],
               ),
             ],
           ),
           const Spacer(),
-          const Icon(Icons.arrow_forward_ios, color: AppColors.grey),
+          const Icon(Icons.arrow_forward_ios, color: AppColors.grey,size:16 ,),
         ],
       ),
     );
@@ -73,6 +97,6 @@ class DeviceListItem extends StatelessWidget {
       default:
         return Icon(Icons.power, color: AppColors.darkGrey);
     }
-    return Image.asset(imagePath, width: 36, height: 36);
+    return Image.asset(imagePath, width: 50, height: 50);
   }
 }

@@ -34,7 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
               'Devices',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: AppColors.fontColorBlack,
+                fontSize: 14,
+                fontFamily: 'Geist',
+                fontWeight: FontWeight.w600, // SemiBold weight
+                height: 1.43, // Line height 20/14 = 1.43
+                letterSpacing: 0.0, // 0% letter spacing
+              ),
             ),
           ),
            DeviceList(),

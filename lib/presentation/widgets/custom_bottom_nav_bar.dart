@@ -45,7 +45,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
   Widget _buildNavItem(String iconPath, String label, int index) {
     final isSelected = currentIndex == index;
-    final Color color = isSelected ? AppColors.black : AppColors.mediumGrey;
+    final Color color = isSelected ? AppColors.black : Color(0xFFA7A7A7);
     final FontWeight fontWeight = isSelected ? FontWeight.w600 : FontWeight.w400;
 
     return Expanded(
@@ -58,18 +58,21 @@ class CustomBottomNavBar extends StatelessWidget {
           children: [
             Image.asset(
               iconPath,
-              height: 26,
-              width: 26,
+              height: 24,
+              width: 24,
               color: color,
             ),
             const SizedBox(height: 6),
             Text(
               label,
-              style: TextStyle(
-                color: color,
-                fontSize: 12,
-                fontWeight: fontWeight,
-              ),
+             style: TextStyle(
+              color: color,
+              fontSize: 11.6,
+              fontFamily: 'Geist',
+              fontWeight: fontWeight, // SemiBold weight
+              height: 1.43, // Line height 20/14 = 1.43
+              letterSpacing: 0.0, // 0% letter spacing
+            ),
             ),
           ],
         ),
