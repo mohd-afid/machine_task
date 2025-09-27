@@ -29,6 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const HeaderSection(),
+
+          const RoomSelector(),
           const SizedBox(height: 16),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0),

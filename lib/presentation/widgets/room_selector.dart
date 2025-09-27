@@ -15,9 +15,9 @@ class _RoomSelectorState extends State<RoomSelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.white.withOpacity(.16),
+      color: AppColors.white.withOpacity(.46),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(_rooms.length, (index) {

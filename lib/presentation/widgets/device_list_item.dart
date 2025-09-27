@@ -10,8 +10,8 @@ class DeviceListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 365, // Fixed width from Figma
-      height: 86, // Fixed height from Figma
+      width: 365,
+      height: 86,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -85,10 +85,11 @@ class DeviceListItem extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Icon(
-            Icons.arrow_forward_ios,
+          Image.asset(
+            'lib/assets/icons/arrow.png',
+            width: 16,
+            height: 16,
             color: AppColors.grey,
-            size: 16,
           ),
         ],
       ),
