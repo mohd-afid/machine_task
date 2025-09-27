@@ -96,6 +96,7 @@ class NavBarPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final path = Path()
+
       ..moveTo(0, 20) // Start top-left after corner
       ..quadraticBezierTo(0, 0, 20, 0) // Top-left corner - more curved
       ..lineTo(size.width * 0.38, 0)
